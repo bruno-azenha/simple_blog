@@ -6,6 +6,7 @@ defmodule SimpleBlog.Accounts.User do
 
   schema "users" do
     field :name, :string
+    field :username, :string
 
     timestamps()
   end
@@ -13,7 +14,8 @@ defmodule SimpleBlog.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :username])
+    |> validate_required([:name, :username])
+    |> unique_constraint(:username)
   end
 end

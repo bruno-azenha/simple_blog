@@ -3,9 +3,9 @@ defmodule SimpleBlogWeb.UserControllerTest do
 
   alias SimpleBlog.Accounts
 
-  @create_attrs %{name: "some name"}
-  @update_attrs %{name: "some updated name"}
-  @invalid_attrs %{name: nil}
+  @create_attrs %{name: "some name", username: "some username"}
+  @update_attrs %{name: "some updated name", username: "some updated username"}
+  @invalid_attrs %{name: nil, username: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)
